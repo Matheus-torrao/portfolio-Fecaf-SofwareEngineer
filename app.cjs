@@ -1,6 +1,3 @@
-//import express from "express";
-//import cors from "cors";
-//import bodyParser from "body-parser";
 
 const express = require('express');
 const cors = require ('cors');
@@ -18,26 +15,26 @@ server.use((req, res, next) =>{
     server.use(cors());
     next();
 });
+
 const bodyParserJson = bodyParser.json()
 // Maneira padronizada de startar um Servidor na porta listada! 
 server.listen('3000', () =>{
-    console.log("Server Running this Port")
-});
-// Metodo Get, testando!!
-server.get('/',  async function (req, res) {
-    let dados = req.body;
-    res.status(200);
-    return res.json({message:`Tarefa cadastrada`});
+    console.log("Server Running: http://localhost:3000")
 });
 
-server.post('/Cadastro', cors(),bodyParserJson, async function (req, res) {
-    let dados = req.body;
-    let result = await controller.InserirDados(dados)
-    if (result){
-        res.status(200)
-        res.json();
-    }else{
-        res.status(400)
-        res.json({message: 'Erro'})
-    }
+// Metodo Get, testando!!
+server.get('/',  async function (req, res) {
+    console.log('Método http utilizado:',req.method);
+    let menu = controller.menu();
+    let question = controller.questUser();
+    res.status(200);
+    return res.json({message:`Passou aqui!`});
+});
+
+server.post('/visualizar', async function (req,res) {
+    console.log('Método http utilizado:',req.method);
+    let result = controller.updateUser();
+    res.status(200);
+    return res.json({message: `Error,`})
+    
 });
