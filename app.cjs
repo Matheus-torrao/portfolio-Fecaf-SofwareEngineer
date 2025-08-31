@@ -31,9 +31,9 @@ server.get('/',  async function (req, res) {
     return res.json({message:`Passou aqui!`});
 });
 
-server.post('/visualizar', async function (req,res) {
+server.get('/visualizar', async function (req,res) {
     console.log('Método http utilizado:',req.method);
-    let result = controller.updateUser();
+    let result = controller.visualizarUser();
     res.status(200);
     return res.json({message: `Error,`})
     
