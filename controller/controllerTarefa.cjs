@@ -54,53 +54,19 @@ const menu = async function appMenu () {
         switch (opcao) {
 
           case 1:
-            const novaTarefa = await askQuestion('Digite a descrição da Tarefa: ')
-            tarefas.push(novaTarefa);
-            console.log('Tarefa Adicionada com sucesso!')
+            cadastrarTarefa();
             break;
 
           case 2:
-            console.log(" Visualizando tarefas...");
-            if (tarefas.length === 0){
-                console.log('Nenhuma tarefa Cadastrada')
-            }else{
-                tarefas.forEach((t, i) => console.log(`${i + 1} - ${t}`))
-            }
+            visualizarTarefa();
             break;
 
           case 3:
-            console.log(" Atualizando tarefa...");
-            if (tarefas.length === 0 ){
-                console.log('Nenhuma tarefa para ser atualizada!')
-            }else{
-                console.log('\nEscolha a Tarefa para Atualizar: ');
-                tarefas.forEach((t,i) => console.log(`${i + 1} - ${t}`));
-                const indexUpdate = Number(await askQuestion('Número da Tarefa: ')) - 1;
-                if(indexUpdate >= 0 && indexUpdate <= tarefas.length){
-                    const novaDescricao = await askQuestion('Digite a nova Descrição: ');
-                    tarefas[indexUpdate] = novaDescricao;
-                    console.log('Tarefa Atualizada com Sucesso!')
-                }else{
-                    console.log('Número Inválido')
-                }
-            }
+            atualizarTarefa();
             break;
             
           case 4:
-            console.log(" Excluindo tarefa...");
-            if(tarefas.length === 0 ){
-                console.log('Nenhuma tarefa para excluir.');
-                break;
-            }
-            console.log('\nEscolha a tarefa para excluir');
-            tarefas.forEach((t,i) => console.log(`${i + 1 } - ${t}`));
-            const indexDelete = Number(await askQuestion('Número da tarefa: ')) - 1;
-            if (indexDelete >= 0 && indexDelete < tarefas.length){
-                tarefas.splice(indexDelete, 1);
-                console.log('Tarefa removida com sucesso!');
-            }else{
-                console.log('Número inválido!')
-            }
+            excluirTarefa();
             break;
 
           case 5:
@@ -124,10 +90,64 @@ const upgradeTarefa = async function Update (){
     const nometarefa = await askQuestion('Digite o nome da Tarefa:'); 
     console.log('chegou aqui')
     rl.close();
+};
+
+
+const cadastrarTarefa = async function Cadastrar (){
+  const novaTarefa = await askQuestion('Digite a descrição da Tarefa: ')
+  tarefas.push(novaTarefa);
+  console.log('Tarefa Adicionada com sucesso!')
+}
+const visualizarTarefa = async function Visualizar (){
+  console.log(" Visualizando tarefas...");
+  if (tarefas.length === 0){
+      console.log('Nenhuma tarefa Cadastrada')
+  }else{
+      tarefas.forEach((t, i) => console.log(`${i + 1} - ${t}`))
+  }
+}
+
+const atualizarTarefa = async function Atualizar (){
+  console.log(" Atualizando tarefa...");
+  if (tarefas.length === 0 ){
+    console.log('Nenhuma tarefa para ser atualizada!')
+}else{
+    console.log('\nEscolha a Tarefa para Atualizar: ');
+    tarefas.forEach((t,i) => console.log(`${i + 1} - ${t}`));
+    const indexUpdate = Number(await askQuestion('Número da Tarefa: ')) - 1;
+    if(indexUpdate >= 0 && indexUpdate <= tarefas.length){
+        const novaDescricao = await askQuestion('Digite a nova Descrição: ');
+        tarefas[indexUpdate] = novaDescricao;
+        console.log('Tarefa Atualizada com Sucesso!')
+    }else{
+        console.log('Número Inválido')
+    }
+}
+}
+const excluirTarefa = async function Excluir (){
+  console.log(" Excluindo tarefa...");
+  if(tarefas.length === 0 ){
+      console.log('Nenhuma tarefa para excluir.');
+      rl.close();
+  }
+  console.log('\nEscolha a tarefa para excluir');
+  tarefas.forEach((t,i) => console.log(`${i + 1 } - ${t}`));
+  const indexDelete = Number(await askQuestion('Número da tarefa: ')) - 1;
+  if (indexDelete >= 0 && indexDelete < tarefas.length){
+      tarefas.splice(indexDelete, 1);
+      console.log('Tarefa removida com sucesso!');
+  }else{
+      console.log('Número inválido!')
+  }
 }
 
 module.exports = {
     askQuestion,
     questUser,
     menu,
-}
+    cadastrarTarefa,
+    visualizarTarefa,
+    atualizarTarefa,
+    excluirTarefa,
+    upgradeTarefa,
+};
