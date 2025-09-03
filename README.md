@@ -3,12 +3,12 @@
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](#)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D14-brightgreen)](#)
 
-## 📌 Descrição do Projeto
+##  Descrição do Projeto
 
 Este projeto faz parte do portfólio da disciplina de Engenharia de Software da **Fecaf**.  
 O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tarefas** aplicando **metodologias ágeis** (Kanban) e boas práticas de desenvolvimento em um repositório GitHub.
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 
 - Criar tarefas
 - Listar tarefas
@@ -17,7 +17,7 @@ O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tare
 
 *(CRUD completo usando Node.js, sem dependência de banco externo ou ORM).*
 
-## 📂 Estrutura do Repositório
+##  Estrutura do Repositório
 .
 ├── controller/ # Lógica de controle das rotas
 ├── model/ # Estrutura de dados em memória
@@ -27,15 +27,15 @@ O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tare
 └── .gitignore
 
 
-## 🛠️ Como Executar o Projeto
+##  Como Executar o Projeto
 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/Matheus-torrao/portfolio-Fecaf-SofwareEngineer.git
    cd portfolio-Fecaf-SofwareEngineer
 
-npm install
-node app.cjs
+<npm install>
+<node app.cjs>
 
 este as rotas usando Postman, Insomnia ou cURL.
 Exemplos de rotas (ajuste se o seu código tiver endpoints diferentes):
@@ -48,7 +48,7 @@ PUT /tarefas/:id → atualiza tarefa
 
 DELETE /tarefas/:id → remove tarefa
 
-📋 Metodologia Ágil
+ Metodologia Ágil
 
 Quadro Kanban no GitHub Projects com colunas:
 A Fazer, Em Progresso, Concluído.
@@ -57,26 +57,13 @@ O fluxo de trabalho é atualizado a cada etapa de desenvolvimento.
 
 Uma mudança de escopo foi simulada (ex.: adicionar prioridade de tarefa) para demonstrar adaptabilidade.
 
-✅ Controle de Qualidade
+ Controle de Qualidade
 
 Testes automatizados básicos (exemplo: validar resposta da rota).
 
 Pipeline configurado com GitHub Actions para rodar os testes em cada push.
-name: CI
-on: [push, pull_request]
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm test
-
-
-📊 Requisitos e UML
+ Requisitos e UML
 
 Requisitos Funcionais: cadastrar, listar, editar e excluir tarefas.
 
@@ -90,7 +77,7 @@ Diagrama de classes (Tarefa, Controlador, Aplicação).
 
 (Diagramas disponíveis na pasta docs/ – usar draw.io para edição).
 
-🔄 Simulação de Mudança de Escopo
+ Simulação de Mudança de Escopo
 
 Adicionada a funcionalidade de prioridade em tarefas.
 
