@@ -33,8 +33,33 @@ server.get('/',  async function (req, res) {
 
 server.get('/visualizar', async function (req,res) {
     console.log('Método http utilizado:',req.method);
-    let result = controller.visualizarUser();
+    let result = controller.visualizarUser(req.body);
     res.status(200);
     return res.json({message: `Error,`})
     
 });
+
+server.post('/cadastrar', async function (req,res) {
+    console.log('Método http utilizado:',req.method);
+    let result = controller.cadastrarTarefa(req.body);
+    res.status(200);
+    return res.json({message: `Error,`})
+    
+});
+
+server.put('/atualizar', async function (req,res) {
+    console.log('Método http utilizado:',req.method);
+    let result = controller.atualizarTarefa(req.body);
+    res.status(200);
+    return res.json({message: `Error,`})
+    
+});
+
+server.delete('/excluir', async function (req,res) {
+    console.log('Método http utilizado:',req.method);
+    let result = controller.excluirTarefa(req.body);
+    res.status(200);
+    return res.json({message: `Error,`})
+    
+});
+    
