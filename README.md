@@ -1,4 +1,4 @@
-# CRUD de Gerenciamento de Tarefas – Projeto Fecaf
+
 
 [![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](#)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D14-brightgreen)](#)
@@ -17,6 +17,7 @@ O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tare
 
 *(CRUD completo usando Node.js, sem dependência de banco externo ou ORM).*
 
+
 ##  Estrutura do Repositório
 .
 ├── controller/ # Lógica de controle das rotas
@@ -27,6 +28,7 @@ O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tare
 └── .gitignore
 
 
+
 ##  Como Executar o Projeto
 
 1. Clone o repositório:
@@ -34,8 +36,8 @@ O objetivo é simular o desenvolvimento de um sistema de **gerenciamento de tare
    git clone https://github.com/Matheus-torrao/portfolio-Fecaf-SofwareEngineer.git
    cd portfolio-Fecaf-SofwareEngineer
 
-<npm install>
-<node app.cjs>
+**npm install**
+**node app.cjs**
 
 este as rotas usando Postman, Insomnia ou cURL.
 Exemplos de rotas (ajuste se o seu código tiver endpoints diferentes):
