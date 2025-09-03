@@ -6,24 +6,20 @@ const bodyParser = require('body-parser');
 const controller = require('./controller/controllerTarefa.cjs');
 
 // instanciando o Express//
-const server = express();
+const app = express();
 
 // Configuração dos Methodos que serão utilizados e Acesso do CRUD
-server.use((req, res, next) =>{
+app.use((req, res, next) =>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Acess-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    server.use(cors());
+    app.use(cors());
     next();
 });
 
 const bodyParserJson = bodyParser.json()
-// Maneira padronizada de startar um Servidor na porta listada! 
-server.listen('3000', () =>{
-    console.log("Server Running: http://localhost:3000")
-});
 
 // Metodo Get, testando!!
-server.get('/',  async function (req, res) {
+app.get('/',  async function (req, res) {
     console.log('Método http utilizado:',req.method);
     let menu = controller.menu();
     let question = controller.questUser();
@@ -31,7 +27,7 @@ server.get('/',  async function (req, res) {
     return res.json({message:`Passou aqui!`});
 });
 
-server.get('/visualizar', async function (req,res) {
+app.get('/visualizar', async function (req,res) {
     console.log('Método http utilizado:',req.method);
     let result = controller.visualizarUser(req.body);
     res.status(200);
@@ -39,7 +35,7 @@ server.get('/visualizar', async function (req,res) {
     
 });
 
-server.post('/cadastrar', async function (req,res) {
+app.post('/cadastrar', async function (req,res) {
     console.log('Método http utilizado:',req.method);
     let result = controller.cadastrarTarefa(req.body);
     res.status(200);
@@ -47,7 +43,7 @@ server.post('/cadastrar', async function (req,res) {
     
 });
 
-server.put('/atualizar', async function (req,res) {
+app.put('/atualizar', async function (req,res) {
     console.log('Método http utilizado:',req.method);
     let result = controller.atualizarTarefa(req.body);
     res.status(200);
@@ -55,7 +51,7 @@ server.put('/atualizar', async function (req,res) {
     
 });
 
-server.delete('/excluir', async function (req,res) {
+app.delete('/excluir', async function (req,res) {
     console.log('Método http utilizado:',req.method);
     let result = controller.excluirTarefa(req.body);
     res.status(200);
@@ -63,3 +59,5 @@ server.delete('/excluir', async function (req,res) {
     
 });
     
+
+module.exports = app;
