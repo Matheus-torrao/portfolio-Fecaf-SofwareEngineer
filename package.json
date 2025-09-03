@@ -1,4 +1,7 @@
 {
+  "type": "commonjs",
+
+  
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
