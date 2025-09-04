@@ -5,7 +5,7 @@ const model = require('../model/tarefas.json');
 const { execPath } = require('process');
 const { error } = require('console');
 
-const tarefas = [];
+const tarefas = model.tarefas;
 
 
 const rl = readline.createInterface({
@@ -85,12 +85,6 @@ const menu = async function appMenu () {
         rl.close();
       }
     };
-
-const upgradeTarefa = async function Update (){
-    const nometarefa = await askQuestion('Digite o nome da Tarefa:'); 
-    console.log('chegou aqui')
-    rl.close();
-};
 
 
 const cadastrarTarefa = async function Cadastrar (){
