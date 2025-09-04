@@ -143,5 +143,4 @@ module.exports = {
     visualizarTarefa,
     atualizarTarefa,
     excluirTarefa,
-    upgradeTarefa,
 };
